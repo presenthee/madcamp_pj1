@@ -48,8 +48,6 @@ public class SinglerItemView extends LinearLayout {
     public void setImage(int resld) {
 
        imageView.setImageResource(resld);
-       imageView.setBackground(new ShapeDrawable(new OvalShape()));
-       imageView.setClipToOutline(true);
 
 
     }
