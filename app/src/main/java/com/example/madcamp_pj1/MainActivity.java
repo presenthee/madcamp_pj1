@@ -8,6 +8,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -19,11 +20,13 @@ import android.text.TextWatcher;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filterable;
 import android.widget.Filter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.nio.file.attribute.FileAttribute;
 import java.util.ArrayList;
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         //검색어 입력창의 사이즈를 화면 크기에 맞춰서 설정해준다.
         getStandardSize();
-        et.getLayoutParams().width=((int) (standardSize_X))*2;
+        et.getLayoutParams().width=((int) (standardSize_X*2.5));
 
         //전화 번호부를 가져오기 위한 메모리 초기화
         arrayList = new ArrayList<>();
@@ -98,6 +101,19 @@ public class MainActivity extends AppCompatActivity {
                  */
 
                 ((SingleAdapter)listView.getAdapter()).getFilter().filter(filterText) ;
+            }
+        });
+
+        //item을 클릭했을시 이벤트가 발생한다.
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent= new Intent(MainActivity.this,ItemInfo.class);
+                Singleitem senditem= (Singleitem) adapter.getItem(i);
+                intent.putExtra("name", senditem.getName());
+                intent.putExtra("phonenumber", senditem.getMobile());
+
+                startActivity(intent);
             }
         });
     }
