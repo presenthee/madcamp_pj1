@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         SingleAdapter adapter = new SingleAdapter();
 
         //검색어 입력창의 사이즈를 화면 크기에 맞춰서 설정해준다.
-        getStandardSize();
-        et.getLayoutParams().width=((int) (standardSize_X*2.5));
+        //getStandardSize();
+        //et.getLayoutParams().width=((int) (standardSize_X*2.5));
 
         //전화 번호부를 가져오기 위한 메모리 초기화
         arrayList = new ArrayList<>();
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             return singlerItemView;
         }
 
+        //검색을 위한 filter 메소드들 정의.
         @Override
         public Filter getFilter() {
             if (listFilter == null) {
@@ -174,10 +175,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();
+                //검색하는 문자열이 없다면 그냥 전체 리스트 보여준다.
                 if (constraint == null || constraint.length() == 0) {
                     results.values =oriData;
                     results.count = oriData.size();
                 } else {
+                    //전체 item들 중 이름에 검색어를 포함하는 애들만 itemList에 넣는다.
                     ArrayList<Singleitem> itemList = new ArrayList<>();
                     for (Singleitem item : oriData) {
                         if (item.getName().toUpperCase().contains(constraint.toString().toUpperCase()))
