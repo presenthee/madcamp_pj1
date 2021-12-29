@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Filterable;
 import android.widget.ListView;
 
+import java.nio.file.attribute.FileAttribute;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     class SingleAdapter extends BaseAdapter {
         //view를 담고 관리하는 어댑터 클래스
         ArrayList<Singleitem> items= new ArrayList<Singleitem>();
+        ArrayList<Singleitem> data= items;
 
         @Override
         public int getCount() {
@@ -70,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
             singlerItemView.setImage(item.getResld());
             return singlerItemView;
         }
+
+
+
 
     }
 }
