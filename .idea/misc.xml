@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sgkan/AndroidStudioProjects/madcamp_pj1/app/src/main/res/drawable/round.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/sgkan/AndroidStudioProjects/madcamp_pj1/app/src/main/res/layout/activity_list_view.xml" value="0.4" />
-        <entry key="..\:/Users/sgkan/AndroidStudioProjects/madcamp_pj1/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/sgkan/AndroidStudioProjects/madcamp_pj1/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/sgkan/AndroidStudioProjects/madcamp_pj1/app/src/main/res/layout/singler_item_list.xml" value="0.2390625" />
       </map>
     </option>
   </component>
