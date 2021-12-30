@@ -24,7 +24,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:layout_gravity="bottom"
             android:scaleType="fitCenter"
             android:src="@drawable/user" />
 
@@ -49,7 +49,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/phone" />
+            android:background="@drawable/phone"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -81,7 +82,7 @@
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:layout_weight="1"
-            android:src="@drawable/comment" />
+            android:background="@drawable/comment" />
 
 
     </LinearLayout>

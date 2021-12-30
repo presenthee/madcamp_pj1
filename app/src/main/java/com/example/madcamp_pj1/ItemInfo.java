@@ -63,5 +63,12 @@ public class ItemInfo extends AppCompatActivity {
             }
         });
 
+        //뒤로가기 버튼 기능 구현
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }
