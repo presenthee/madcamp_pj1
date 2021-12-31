@@ -3,6 +3,7 @@ package com.example.madcamp_pj1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static Context cont;
     Fragment1 fragment1;
     // fragment2;
     //Fragment3 fragment3;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        cont=getApplicationContext();
         fragment1 = new Fragment1();
         //fragment2 = new Fragment2();
         //fragment3 = new Fragment3();

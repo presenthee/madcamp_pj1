@@ -1,12 +1,14 @@
 package com.example.madcamp_pj1;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -15,6 +17,8 @@ public class SinglerItemView extends LinearLayout {
     // 정의한 레이아웃을 설정해주는 클래스
     TextView textView, textView2;
     ImageView imageView;
+    QuickContactBadge badge;
+    static Context context = MainActivity.cont;
 
     public SinglerItemView(Context context) {
         super(context);
@@ -33,7 +37,8 @@ public class SinglerItemView extends LinearLayout {
 
         textView=findViewById(R.id.textView);
         textView2=findViewById(R.id.textView2);
-        imageView=findViewById(R.id.imageView);
+        //imageView=findViewById(R.id.imageView);
+        badge = (QuickContactBadge) findViewById(R.id.badge);
     }
 
     /*실제로 이미지와 텍스트를 넣는 메서드*/
@@ -45,10 +50,7 @@ public class SinglerItemView extends LinearLayout {
        textView2.setText(mobile);
     }
 
-    public void setImage(int resld) {
-
-       imageView.setImageResource(resld);
-
-
+    public void setImage(Bitmap thumbnail) {
+       badge.setImageBitmap(thumbnail);
     }
 }

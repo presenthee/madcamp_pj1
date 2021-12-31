@@ -1,22 +1,30 @@
 package com.example.madcamp_pj1;
 
+import android.graphics.Bitmap;
+
 public class Singleitem {
     String name;
     String mobile;
     int resld;
     String id;
+    Bitmap image;
 
     //생성자
-    public Singleitem(String name,String mobile,String id, int resld ) {
+    public Singleitem(String name,String mobile,String id, int resld, Bitmap image ) {
         this.name=name;
         this.mobile=mobile;
         this.resld=resld;
         this.id=id;
+        this.image=image;
     }
 
     //필드 접근 메소드
     public String getName() {
         return name;
+    }
+
+    public Bitmap getImage() {
+        return image;
     }
 
     public void setName(String name) {
@@ -33,14 +41,9 @@ public class Singleitem {
         this.mobile = mobile;
     }
 
-    public int getResld() {
-        return resld;
-    }
-
     @Override
     public String toString() {
-        return "SinglerItem{"+ "name='"+name+'\''+
-                ", mobile='"+mobile+'\''+'}';
+        return "SinglerItem{"+ "name='"+name+'\''+ ", mobile='"+mobile+'\''+'}';
     }
 
 }

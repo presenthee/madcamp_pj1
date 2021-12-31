@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -26,9 +28,12 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Fragment1 extends Fragment {
@@ -52,9 +57,6 @@ public class Fragment1 extends Fragment {
         EditText et= (EditText)view.findViewById(R.id.editText);
         SingleAdapter adapter = new SingleAdapter();
 
-        //검색어 입력창의 사이즈를 화면 크기에 맞춰서 설정해준다.
-        //getStandardSize();
-        //et.getLayoutParams().width=((int) (standardSize_X*2.5));
 
         //전화 번호부를 가져오기 위한 메모리 초기화
         arrayList = new ArrayList<>();
@@ -74,7 +76,11 @@ public class Fragment1 extends Fragment {
             //사람 목록을 추가해줌
             String s = arrayList.get(i);
             String[] info= s.split(",");
-            adapter.addItem(new Singleitem(info[0], info[1],info[2], R.drawable.img1));
+            Bitmap bitmap=new QuickContactHelper(getActivity().getApplicationContext(), info[1]).addThumbnail();
+            if(bitmap==null) {
+                bitmap=BitmapFactory.
+                    decodeResource(getActivity().getApplicationContext().getResources(), R.drawable.img);}
+            adapter.addItem(new Singleitem(info[0],info[1],info[2],R.drawable.img,bitmap));
         }
         listView.setAdapter(adapter);
         oriData = adapter.getItems();
@@ -160,6 +166,7 @@ public class Fragment1 extends Fragment {
 
         public void addItem(Singleitem item) {
             items.add(item);
+            Collections.sort(items, cmp);
         }
 
         @Override
@@ -185,13 +192,12 @@ public class Fragment1 extends Fragment {
             //코드 재사용을 위한 조건문
             if (convertView == null) {
                 singlerItemView = new SinglerItemView(getActivity().getApplicationContext());
-            } else {
-                singlerItemView = (SinglerItemView) convertView;
-            }
+            } else { singlerItemView = (SinglerItemView) convertView;}
+
             Singleitem item = data.get(position);
             singlerItemView.setName(item.getName());
             singlerItemView.setMobile(item.getMobile());
-            singlerItemView.setImage(item.getResld());
+            singlerItemView.setImage(item.getImage());
             return singlerItemView;
         }
 
@@ -229,6 +235,7 @@ public class Fragment1 extends Fragment {
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 data = (ArrayList<Singleitem>) results.values;
+                Collections.sort(data, cmp);
                 if(results.count>0){
                     notifyDataSetChanged();
                 }
@@ -239,6 +246,14 @@ public class Fragment1 extends Fragment {
 
     }
 
+    public static Comparator<Singleitem> cmp=new Comparator<Singleitem>() {
+        @Override
+        public int compare(Singleitem t1, Singleitem t2) {
+            String name1=t1.getName();
+            String name2=t2.getName();
+            return name1.compareTo(name2);
+        }
+    } ;
 
     //연락처 로딩을 위한 API
     @RequiresApi(api = Build.VERSION_CODES.O)
