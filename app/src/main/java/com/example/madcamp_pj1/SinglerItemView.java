@@ -42,15 +42,15 @@ public class SinglerItemView extends LinearLayout {
     }
 
     /*실제로 이미지와 텍스트를 넣는 메서드*/
-   public void setName(String name) {
+    public void setName(String name) {
         textView.setText(name);
     }
 
     public void setMobile(String mobile) {
-       textView2.setText(mobile);
+        textView2.setText(mobile);
     }
 
     public void setImage(Bitmap thumbnail) {
-       badge.setImageBitmap(thumbnail);
+        badge.setImageBitmap(thumbnail);
     }
 }

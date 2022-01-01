@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public static Context cont;
     Fragment1 fragment1;
     // fragment2;
-    //Fragment3 fragment3;
+    Fragment3 fragment3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         cont=getApplicationContext();
         fragment1 = new Fragment1();
         //fragment2 = new Fragment2();
-        //fragment3 = new Fragment3();
+        fragment3 = new Fragment3();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
 
@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
                     /*case R.id.tab2:
                         Toast.makeText(getApplicationContext(),"두번째",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment2).commit();
-                        return true;
+                        return true;*/
 
                     case R.id.tab3:
                         Toast.makeText(getApplicationContext(),"세번째",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment3).commit();
-                        return true;*/
+                        return true;
                 }
                 return false;
             }

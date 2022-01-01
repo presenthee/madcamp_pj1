@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cursorColor">#4CAF50</color>
-    <color name="main_theme">#8BC34A</color>
+    <color name="main_theme">#6A6868</color>
     <color name="item_color">#FFFFFF</color>
 </resources>

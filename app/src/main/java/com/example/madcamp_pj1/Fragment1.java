@@ -9,6 +9,12 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -31,6 +37,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -79,8 +86,9 @@ public class Fragment1 extends Fragment {
             Bitmap bitmap=new QuickContactHelper(getActivity().getApplicationContext(), info[1]).addThumbnail();
             if(bitmap==null) {
                 bitmap=BitmapFactory.
-                    decodeResource(getActivity().getApplicationContext().getResources(), R.drawable.img);}
-            adapter.addItem(new Singleitem(info[0],info[1],info[2],R.drawable.img,bitmap));
+                        decodeResource(getActivity().getApplicationContext().getResources(), R.drawable.img1);}
+            bitmap=getCroppedBitmap(bitmap);
+            adapter.addItem(new Singleitem(info[0],info[1],info[2],bitmap));
         }
         listView.setAdapter(adapter);
         oriData = adapter.getItems();
@@ -111,7 +119,10 @@ public class Fragment1 extends Fragment {
                 Singleitem senditem= (Singleitem) adapter.getItem(i);
                 intent.putExtra("name", senditem.getName());
                 intent.putExtra("phonenumber", senditem.getMobile());
-
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                senditem.getImage().compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                intent.putExtra("image",byteArray);
                 startActivity(intent);
             }
         });
@@ -135,6 +146,9 @@ public class Fragment1 extends Fragment {
                         // Sets the MIME type to match the Contacts Provider
                         intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
                         startActivity(intent);
+
+                        /*adapter.delItem(p);
+                        adapter.notifyDataSetChanged();*/ //for deleteing item.
                     }
                 });
 
@@ -284,6 +298,28 @@ public class Fragment1 extends Fragment {
                 getcontact();
             }
         }
+    }
+
+    public static Bitmap getCroppedBitmap(Bitmap bitmap) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        // canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2,
+                bitmap.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        // Bitmap _bmp = Bitmap.createScaledBitmap(output, 60, 60, false);
+        // return _bmp;
+        return output;
     }
 
 

@@ -5,15 +5,13 @@ import android.graphics.Bitmap;
 public class Singleitem {
     String name;
     String mobile;
-    int resld;
     String id;
     Bitmap image;
 
     //생성자
-    public Singleitem(String name,String mobile,String id, int resld, Bitmap image ) {
+    public Singleitem(String name,String mobile,String id, Bitmap image ) {
         this.name=name;
         this.mobile=mobile;
-        this.resld=resld;
         this.id=id;
         this.image=image;
     }
