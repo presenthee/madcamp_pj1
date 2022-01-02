@@ -13,8 +13,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     public static Context cont;
     Fragment1 fragment1;
-    // fragment2;
+    //Fragment fragment2;
     Fragment3 fragment3;
+    Fragment4 fragment4;
     //로그인 확인을 위한 fragment.
     boolean is_Login;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         fragment1 = new Fragment1();
         //fragment2 = new Fragment2();
         fragment3 = new Fragment3();
+        fragment4 = new Fragment4();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
 
