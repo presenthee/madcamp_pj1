@@ -15,11 +15,14 @@ public class MainActivity extends AppCompatActivity {
     Fragment1 fragment1;
     // fragment2;
     Fragment3 fragment3;
+    //로그인 확인을 위한 fragment.
+    boolean is_Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        is_Login=false;
         cont=getApplicationContext();
         fragment1 = new Fragment1();
         //fragment2 = new Fragment2();
@@ -38,14 +41,23 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     /*case R.id.tab2:
-                        Toast.makeText(getApplicationContext(),"두번째",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"세번째",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment2).commit();
                         return true;*/
 
                     case R.id.tab3:
-                        Toast.makeText(getApplicationContext(),"세번째",Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment3).commit();
-                        return true;
+                        Toast.makeText(getApplicationContext(),"두번째",Toast.LENGTH_SHORT).show();
+                        if(is_Login==true) {
+                            //fragment4 실행
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment4).commit();
+                            return true;
+                        }
+
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment3).commit();
+                            return true;
+                        }
+
                 }
                 return false;
             }
