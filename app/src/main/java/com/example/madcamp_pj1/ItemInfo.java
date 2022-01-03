@@ -97,5 +97,6 @@ public class ItemInfo extends AppCompatActivity {
                 startActivity(Sharing);
             }
         });
+
     }
 }

@@ -6,15 +6,16 @@
         android:enabled="true"
         app:showAsAction="ifRoom"
         android:title="Phonebook"
-        android:icon="@android:drawable/stat_sys_phone_call"/>
+        android:icon="@android:drawable/stat_sys_phone_call" />
 
     <item android:id="@+id/tab2"
         app:showAsAction="ifRoom"
         android:title="Gallery"
-        android:icon="@android:drawable/ic_menu_gallery"/>
+        android:iconTint="#FFFFFF"
+        android:icon="@drawable/gallery"/>
 
     <item android:id="@+id/tab3"
         app:showAsAction="ifRoom"
-        android:title="tab3"
-        android:icon="@android:drawable/gallery_thumb"/>
+        android:title="Classroom"
+        android:icon="@drawable/monitor"/>
 </menu>

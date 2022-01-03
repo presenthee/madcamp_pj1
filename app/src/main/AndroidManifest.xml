@@ -18,9 +18,6 @@
             android:name=".Empty"
             android:exported="false" />
         <activity
-            android:name=".ClassActivity"
-            android:exported="false" />
-        <activity
             android:name=".ItemInfo"
             android:exported="false" />
         <activity

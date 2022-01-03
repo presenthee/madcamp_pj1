@@ -38,22 +38,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.tab1:
+                    case R.id.tab1: //전화번호부
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
                         return true;
 
-                    case R.id.tab2:
+                    case R.id.tab2: //갤러리
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment2).commit();
                         return true;
 
-                    case R.id.tab3:
-                        if(is_Login==true) {
-                            //fragment4 실행
+                    case R.id.tab3: //로그인 창 or 교실 페이지
+                        if(is_Login==true) { //로그인이 되어있을 경우
+                            //fragment4 실행 - 교실창
                             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment4).commit();
                             return true;
                         }
 
-                        else {
+                        else { //로그인이 x인 경우 -- 로그인 창
                             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment3).commit();
                             return true;
                         }
@@ -64,26 +64,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // 인덱스를 통해 해당되는 프래그먼트를 띄운다.
-    public void fragmentChange(int index){
-        if(index == 1){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Fragment1()).commit();
-        }
-        else if(index == 2){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Fragment2()).commit();
-        }
-
-        else if(index == 3){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Fragment3()).commit();
-        }
-
-        else if(index == 4){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Fragment4()).commit();
-        }
-
-    }
 }

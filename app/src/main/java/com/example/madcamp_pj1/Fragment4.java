@@ -119,11 +119,15 @@ public class Fragment4 extends Fragment {
         btn_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Map<String, Object> ht = new HashMap<String, Object>();
-                String att_time = editText.getText().toString();
-                ht.put(name+"/"+"time", att_time);
-                databaseReference.updateChildren(ht);
-
+                if(name!=null) {
+                    Map<String, Object> ht = new HashMap<String, Object>();
+                    String att_time = editText.getText().toString();
+                    ht.put(name + "/" + "time", att_time);
+                    databaseReference.updateChildren(ht);
+                }
+                else {
+                    Log.d("Fragment4","null name error");
+                }
             }
         });
         return view;

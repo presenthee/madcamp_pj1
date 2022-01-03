@@ -34,7 +34,7 @@
             android:textCursorDrawable="@drawable/text_cursor"
             android:inputType="textNoSuggestions|textVisiblePassword"
             android:textSize="14sp"
-            android:typeface="serif" />
+            android:fontFamily="@font/nanumgothic" />
 
         </LinearLayout>
 
