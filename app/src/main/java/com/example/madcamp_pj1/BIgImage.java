@@ -48,6 +48,7 @@ public class BIgImage extends AppCompatActivity {
 
         matrix = new Matrix();
         savedMatrix = new Matrix();
+        matrix.postScale(10,10);
         image = findViewById(R.id.image);
         Intent intent = getIntent();
         final Integer integer = intent.getIntExtra("image_integer",0);
@@ -58,23 +59,38 @@ public class BIgImage extends AppCompatActivity {
 //        }
         if (integer instanceof Integer) {
             image.setImageResource(integer);
-            image.setOnTouchListener(onTouch);
+//            image.setOnTouchListener(onTouch);
             image.setScaleType(ImageView.ScaleType.MATRIX);
+//            image.setScaleType(ImageView.ScaleType.CENTER);
+
+
 
         }
         if (uri instanceof String){
             Uri s_uri = Uri.parse(uri);
             image.setImageURI(s_uri);
-            image.setOnTouchListener(onTouch);
+//            image.setScaleType(ImageView.ScaleType.CENTER);
+//            image.setOnTouchListener(onTouch);
+//            image.setScaleType(ImageView.ScaleType.CENTER);
             image.setScaleType(ImageView.ScaleType.MATRIX);
 
+
+
         }
+
+
+
+        image.setOnTouchListener(onTouch);
+//        image.setScaleType(ImageView.ScaleType.MATRIX);
 //
 
     }
     private View.OnTouchListener onTouch = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+//            image.setScaleType(ImageView.ScaleType.MATRIX);
+//            image.setTranslationX(10);
+//            image.setTranslationY(10);
             if (v.equals(image)) {
                 int action = event.getAction();
                 switch (action & MotionEvent.ACTION_MASK) {
@@ -109,7 +125,7 @@ public class BIgImage extends AppCompatActivity {
     };
 
     private PointF getMidPoint(MotionEvent e) {
-
+        //두 손가락 사이의 중간점
         float x = (e.getX(0) + e.getX(1)) / 2;
         float y = (e.getY(0) + e.getY(1)) / 2;
 
@@ -117,17 +133,20 @@ public class BIgImage extends AppCompatActivity {
     }
 
     private float getDistance(MotionEvent e) {
+        //두 손가락 사이의 거리
         float x = e.getX(0) - e.getX(1);
         float y = e.getY(0) - e.getY(1);
         return (float) Math.sqrt(x * x + y * y);
     }
 
     private void donwSingleEvent(MotionEvent event) {
+        //한손가락 눌렀을 경우 시작지점 저장
         savedMatrix.set(matrix);
         startPoint = new PointF(event.getX(), event.getY());
     }
 
     private void downMultiEvent(MotionEvent event) {
+        // 두 손가락 눌렀을 경우 중심점과 각도 저장
         oldDistance = getDistance(event);
         if (oldDistance > 5f) {
             savedMatrix.set(matrix);
@@ -160,5 +179,14 @@ public class BIgImage extends AppCompatActivity {
 
         }
     }
+
+//    private Matrix matrix_changeed(Matrix matrix){
+//        float[] values = new float[9];
+//        matrix.getValues(values);
+//
+//        float globalX = values[2];
+//        float globalY = values[5];
+//
+//    }
 
 }

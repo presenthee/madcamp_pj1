@@ -46,6 +46,7 @@ public class Fragment4 extends Fragment {
     String sitnumber;
     Integer sitnumber_int;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class Fragment4 extends Fragment {
         EditText editText = view.findViewById(R.id.edit_time);
         ;
         Button btn_time = view.findViewById(R.id.btn_time);
+        Button btn_gone = view.findViewById(R.id.btn_gone);
         Integer[] resId = {R.id.name1,R.id.name2,R.id.name3,R.id.name4,R.id.name5,R.id.name6,
                 R.id.name7,R.id.name8,R.id.name9,R.id.name10,R.id.name11,R.id.name12,R.id.name13,R.id.name14,
                 R.id.name15,R.id.name16};
@@ -88,11 +90,14 @@ public class Fragment4 extends Fragment {
                     schoolview = view.findViewById(resId_school[sitnumber_int-1]);
                     timeview = view.findViewById(resId_time[sitnumber_int-1]);
                     if(user.getTime().equals("-1")){
-                        timeview.setText("미등록");
+                        timeview.setText("퇴근");
+                        Drawable img = getActivity().getResources().getDrawable(R.drawable.dot2);
+                        img.setBounds(0,0,60,60);
+                        nameview.setCompoundDrawables(img,null,null,null);
                     }
                     else{
                         timeview.setText(user.getTime());
-                        Drawable img = getContext().getResources().getDrawable(R.drawable.dot);
+                        Drawable img = getActivity().getResources().getDrawable(R.drawable.dot);
                         img.setBounds(0,0,60,60);
                         nameview.setCompoundDrawables(img,null,null,null);
                     }
@@ -117,17 +122,23 @@ public class Fragment4 extends Fragment {
         });
 
         btn_time.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Map<String, Object> ht = new HashMap<String, Object>();
+                                            String att_time = editText.getText().toString();
+                                            ht.put(name+"/"+"time", att_time);
+                                            databaseReference.updateChildren(ht);
+
+                                        }
+                                    }
+        );
+
+        btn_gone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(name!=null) {
-                    Map<String, Object> ht = new HashMap<String, Object>();
-                    String att_time = editText.getText().toString();
-                    ht.put(name + "/" + "time", att_time);
-                    databaseReference.updateChildren(ht);
-                }
-                else {
-                    Log.d("Fragment4","null name error");
-                }
+                Map<String, Object> ht = new HashMap<String, Object>();
+                ht.put(name+"/"+"time", "-1");
+                databaseReference.updateChildren(ht);
             }
         });
         return view;
