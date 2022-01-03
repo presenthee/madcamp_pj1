@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class MainActivity extends AppCompatActivity {
     public static Context cont;
     Fragment1 fragment1;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment3 fragment3;
     Fragment4 fragment4;
     //로그인 확인을 위한 fragment.
-    boolean is_Login;
+    static public boolean is_Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +65,28 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    // 인덱스를 통해 해당되는 프래그먼트를 띄운다.
+    public void fragmentChange(int index){
+        if(index == 1){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Fragment1()).commit();
+        }
+        else if(index == 2){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Fragment2()).commit();
+        }
+
+        else if(index == 3){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Fragment3()).commit();
+        }
+
+        else if(index == 4){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Fragment4()).commit();
+        }
+
     }
 }

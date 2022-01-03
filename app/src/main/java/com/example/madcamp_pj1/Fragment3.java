@@ -3,19 +3,37 @@ package com.example.madcamp_pj1;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import static com.example.madcamp_pj1.MainActivity.is_Login;
 
 public class Fragment3 extends Fragment {
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
+    User ur;
     EditText namelogin;
     EditText pwlogin;
     Button btn_register;
     Button btn_login;
+    ArrayList<User> arrayList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +48,30 @@ public class Fragment3 extends Fragment {
 
         btn_register=(Button) view.findViewById(R.id.btn_register);
         btn_login=(Button) view.findViewById(R.id.btn_login);
+        namelogin=(EditText)view.findViewById(R.id.namelogin);
+        pwlogin=(EditText)view.findViewById(R.id.pwlogin);
+
+        arrayList=new ArrayList<>();
+
+        database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스 연동
+        databaseReference = database.getReference("User"); //DB테이블 연결
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //데이터를 받아오는 곳
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    //유저 데이터 추출
+                    User user = dataSnapshot.getValue(User.class);
+                    arrayList.add(user);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //에러 발생 처리
+                Log.e("ClassActivity",String.valueOf(error.toException()));
+            }
+        });
 
         //회원가입 버튼 눌렀을 때 기능 구현
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +86,44 @@ public class Fragment3 extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String id = namelogin.getText().toString();
+                String password= pwlogin.getText().toString();
+                //입력값이 없을 때
+                if(id.equals("") || password.equals("")) {
+                    Toast nToast = Toast.makeText(getActivity().getApplicationContext(),
+                            "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT);
+                    nToast.show();
+                }
+                //리스트가 비었을 때
+                else if (arrayList==null || (arrayList.size()==0)){
+                    Toast aToast = Toast.makeText(getActivity().getApplicationContext(),
+                            "null list", Toast.LENGTH_SHORT);
+                    aToast.show();
+                }
+                //비교
+                else {
+                    Toast myToast = Toast.makeText(getActivity().getApplicationContext(),
+                            "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    for(int i=0; i<arrayList.size(); i++) {
+                        ur=arrayList.get(i);
+                        Log.d("Fragment3", ur.getId());
+                        Log.d("Fragment3", ur.getPw());
+                        if (((ur.getId().equals(id))==true) && ((ur.getPw().equals(password))==true)) {
+                            //비밀번호랑 아이디 일치시 fragment4 호출
+                            is_Login=true;
+                            Bundle bundle = new Bundle(); // 번들을 통해 값 전달
+                            bundle.putString("name",ur.getId());//번들에 넘길 값 저장
+                            bundle.putString("sit",ur.getSit());
+                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            Fragment4 fragment4 = new Fragment4();//프래그먼트2 선언
+                            fragment4.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
+                            transaction.replace(R.id.container, fragment4);
+                            transaction.commit();
+                        }
+                    }
+                }
+                //로그인 실패
             }
         });
 

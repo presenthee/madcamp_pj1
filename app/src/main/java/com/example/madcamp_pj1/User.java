@@ -2,9 +2,9 @@ package com.example.madcamp_pj1;
 
 public class User {
     private String id;
-    private int pw;
+    private String pw;
     private String school;
-    private int sit;
+    private String sit;
 
     public User(){}
 
@@ -16,11 +16,11 @@ public class User {
         this.id = id;
     }
 
-    public int getPw() {
+    public String getPw() {
         return pw;
     }
 
-    public void setPw(int pw) {
+    public void setPw(String pw) {
         this.pw = pw;
     }
 
@@ -32,11 +32,11 @@ public class User {
         this.school = school;
     }
 
-    public int getSit() {
+    public String getSit() {
         return sit;
     }
 
-    public void setSit(int sit) {
+    public void setSit(String sit) {
         this.sit = sit;
     }
 }
