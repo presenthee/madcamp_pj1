@@ -5,6 +5,7 @@ public class User {
     private String pw;
     private String school;
     private String sit;
+    private String time;
 
     public User(){}
 
@@ -38,5 +39,13 @@ public class User {
 
     public void setSit(String sit) {
         this.sit = sit;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

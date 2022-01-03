@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addstudent(edit1.getText().toString(), edit2.getText().toString(),edit3.getText().toString(),edit4.getText().toString());
+                addstudent(edit1.getText().toString(), edit2.getText().toString(),edit3.getText().toString(),edit4.getText().toString(),"-1");
                 Toast myToast = Toast.makeText(getApplicationContext(),"가입 되었습니다.", Toast.LENGTH_SHORT);
                 myToast.show();
                 onBackPressed();
@@ -63,11 +63,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    public class student {
+    public static class student {
         private String name; //동물 이름
         private String pw; //동물 종류
         private String school;
         private String sit;
+        private String time;
 
         public student(){} // 생성자 메서드
 
@@ -108,21 +109,30 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         //값을 추가할때 쓰는 함수, MainActivity에서 addanimal함수에서 사용할 것임.
-        public student(String name, String pw, String school, String sit){
+        public student(String name, String pw, String school, String sit, String time){
             this.name = name;
             this.pw = pw ;
             this.school = school;
             this.sit = sit;
+            this.time = time;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
         }
     }
 
-    public void addstudent(String name, String pw, String school, String sit) {
+    public void addstudent(String name, String pw, String school, String sit, String time) {
 
         //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
         // ex) 갓 태어난 동물만 입력해서 int age=1; 등을 넣는 경우
 
         //animal.java에서 선언했던 함수.
-        student studentt = new student(name,pw,school,sit);
+        student studentt = new student(name,pw,school,sit,time);
 
         //child는 해당 키 위치로 이동하는 함수입니다.
         //키가 없는데 "zoo"와 name같이 값을 지정한 경우 자동으로 생성합니다.
