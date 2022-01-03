@@ -39,7 +39,7 @@ public class ClassActivity extends AppCompatActivity {
                     nameview=(TextView) findViewById(R.id.name1);
                     schoolview=(TextView) findViewById(R.id.school1);
 
-                    nameview.setText(user.getId());
+                    nameview.setText(user.getName());
                     schoolview.setText(user.getSchool());
 
 

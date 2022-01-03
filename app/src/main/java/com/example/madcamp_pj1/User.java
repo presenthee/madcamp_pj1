@@ -1,19 +1,19 @@
 package com.example.madcamp_pj1;
 
 public class User {
-    private String id;
+    private String name;
     private String pw;
     private String school;
     private String sit;
 
     public User(){}
 
-    public String getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPw() {

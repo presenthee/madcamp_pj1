@@ -107,13 +107,21 @@ public class Fragment3 extends Fragment {
                     myToast.show();
                     for(int i=0; i<arrayList.size(); i++) {
                         ur=arrayList.get(i);
-                        Log.d("Fragment3", ur.getId());
-                        Log.d("Fragment3", ur.getPw());
-                        if (((ur.getId().equals(id))==true) && ((ur.getPw().equals(password))==true)) {
+                        if(ur.getName()==null) {
+                            Log.d("Fragment3", "empty");
+
+                        }
+
+                        if(ur.getPw()==null) {
+                            Log.d("Fragment3", "pwempty");
+
+                        }
+
+                        if (((ur.getName().equals(id))==true) && (ur.getPw().equals(password))==true) {
                             //비밀번호랑 아이디 일치시 fragment4 호출
                             is_Login=true;
                             Bundle bundle = new Bundle(); // 번들을 통해 값 전달
-                            bundle.putString("name",ur.getId());//번들에 넘길 값 저장
+                            bundle.putString("name",ur.getName());//번들에 넘길 값 저장
                             bundle.putString("sit",ur.getSit());
                             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                             Fragment4 fragment4 = new Fragment4();//프래그먼트2 선언
