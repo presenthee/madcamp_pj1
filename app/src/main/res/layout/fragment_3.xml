@@ -10,13 +10,14 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="130dp"
         android:text="MADCAMP Classroom"
+        android:textColor="#858585"
         android:textSize="30dp"
-        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/opensan" />
 
     <EditText
         android:id="@+id/namelogin"
@@ -53,7 +54,7 @@
     <Button
         android:id="@+id/btn_register"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/color_change"
@@ -70,7 +71,7 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/color_change"
@@ -81,6 +82,8 @@
         android:paddingRight="15dp"
         android:text="로그인"
         android:textColor="#6C6C6C"
+        android:textSize="12dp"
+        android:fontFamily="@font/nanumsquare"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwlogin" />
 

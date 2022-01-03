@@ -28,6 +28,7 @@
             android:text="이름"
             android:typeface="serif"
             android:textSize="14sp"
+            android:fontFamily="@font/nanumsquare"
             android:textColor="#000000" />
 
         <TextView
@@ -38,6 +39,7 @@
             android:typeface="sans"
             android:text="전화번호"
             android:textSize="9sp"
+            android:fontFamily="@font/nanumsquare"
             android:textColor="@android:color/darker_gray" />
 
     </LinearLayout>

@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     public static Context cont;
     Fragment1 fragment1;
-    //Fragment fragment2;
+    Fragment2 fragment2;
     Fragment3 fragment3;
     Fragment4 fragment4;
     //로그인 확인을 위한 fragment.
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         is_Login=false;
         cont=getApplicationContext();
         fragment1 = new Fragment1();
-        //fragment2 = new Fragment2();
+        fragment2 = new Fragment2();
         fragment3 = new Fragment3();
         fragment4 = new Fragment4();
 
@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
                         return true;
 
-                    /*case R.id.tab2:
+                    case R.id.tab2:
                         Toast.makeText(getApplicationContext(),"세번째",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment2).commit();
-                        return true;*/
+                        return true;
 
                     case R.id.tab3:
                         Toast.makeText(getApplicationContext(),"두번째",Toast.LENGTH_SHORT).show();

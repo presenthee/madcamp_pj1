@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_gravity="right"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:text="갤러리에서 가져오기"
+        android:background="@drawable/color_change"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#6C6C6C"
+        android:textSize="12dp"></Button>
+
+    <GridView
+    android:id="@+id/gridview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment2">
+    android:layout_gravity="center"
+    android:columnWidth="90dp"
+    android:horizontalSpacing="10dp"
+    android:numColumns="3"
+    android:verticalSpacing="10dp"
+    tools:context=".MainActivity"></GridView>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:srcCompat="@drawable/ic_launcher_background" />
 
-</FrameLayout>
+    </LinearLayout>
