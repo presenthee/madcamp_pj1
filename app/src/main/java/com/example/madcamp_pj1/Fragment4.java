@@ -1,8 +1,12 @@
 package com.example.madcamp_pj1;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -68,7 +72,7 @@ public class Fragment4 extends Fragment {
         if(getArguments() != null){
             name = getArguments().getString("name");
 //            Log.d("Fragment4", "get");
-             }
+        }
 
 
 
@@ -82,13 +86,23 @@ public class Fragment4 extends Fragment {
                     int sitnumber_int = Integer.parseInt(sitnumber);
                     nameview = view.findViewById(resId[sitnumber_int-1]);
                     schoolview = view.findViewById(resId_school[sitnumber_int-1]);
-                    timeview = view.findViewById(resId_school[sitnumber_int-1]);
+                    timeview = view.findViewById(resId_time[sitnumber_int-1]);
                     if(user.getTime().equals("-1")){
                         timeview.setText("미등록");
                     }
                     else{
                         timeview.setText(user.getTime());
+                        Drawable img = getContext().getResources().getDrawable(R.drawable.dot);
+                        img.setBounds(0,0,60,60);
+                        nameview.setCompoundDrawables(img,null,null,null);
                     }
+
+//                    DrawableCompat.setTint(img.mutate(), 12);
+//                    img.setBounds(0,0,img.getIntrinsicWidth(), img.getIntrinsicHeight());
+//                    nameview.setCompoundDrawables(img,null,null,null);
+//                    btn_color.setColor(getResources().getColor(R.color.design_default_color_primary));
+
+
 
                     nameview.setText(user.getName());
                     schoolview.setText(user.getSchool());
