@@ -97,14 +97,11 @@ public class Fragment3 extends Fragment {
                 //리스트가 비었을 때
                 else if (arrayList==null || (arrayList.size()==0)){
                     Toast aToast = Toast.makeText(getActivity().getApplicationContext(),
-                            "null list", Toast.LENGTH_SHORT);
+                            "Loading...", Toast.LENGTH_SHORT);
                     aToast.show();
                 }
                 //비교
                 else {
-                    Toast myToast = Toast.makeText(getActivity().getApplicationContext(),
-                            "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT);
-                    myToast.show();
                     for(int i=0; i<arrayList.size(); i++) {
                         ur=arrayList.get(i);
                         if(ur.getName()==null) {

@@ -29,7 +29,8 @@
         android:backgroundTint="#F4F4F4"
         android:hint="이름"
         android:textCursorDrawable="@drawable/text_cursor"
-        android:textSize="14sp"
+        android:textSize="13sp"
+        android:textColor="#BCBCBC"
         android:gravity="right|center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,8 @@
         android:layout_marginTop="24dp"
         android:paddingRight="10dp"
         android:hint="비밀번호"
-        android:textSize="14sp"
+        android:textSize="13sp"
+        android:textColor="#BCBCBC"
         android:gravity="right|center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +67,8 @@
         android:paddingRight="15dp"
         android:text="회원가입"
         android:textColor="#6C6C6C"
+        android:textSize="12dp"
+        android:fontFamily="@font/nanumsquare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwlogin" />
 

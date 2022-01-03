@@ -86,7 +86,7 @@ public class Fragment1 extends Fragment {
             Bitmap bitmap=new QuickContactHelper(getActivity().getApplicationContext(), info[1]).addThumbnail();
             if(bitmap==null) {
                 bitmap=BitmapFactory.
-                        decodeResource(getActivity().getApplicationContext().getResources(), R.drawable.img1);}
+                        decodeResource(getActivity().getApplicationContext().getResources(), R.drawable.user);}
             bitmap=getCroppedBitmap(bitmap);
             adapter.addItem(new Singleitem(info[0],info[1],info[2],bitmap));
         }

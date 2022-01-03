@@ -36,14 +36,14 @@
                 android:id="@+id/school1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
             <TextView
                 android:id="@+id/time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -68,14 +68,14 @@
                 android:id="@+id/school2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
             <TextView
                 android:id="@+id/time2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -101,14 +101,14 @@
                 android:id="@+id/school3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
             <TextView
                 android:id="@+id/time3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -133,14 +133,14 @@
                 android:id="@+id/school4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
             <TextView
                 android:id="@+id/time4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -172,7 +172,7 @@
 
             <TextView
                 android:id="@+id/school5"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -181,7 +181,7 @@
                 android:id="@+id/time5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -204,7 +204,7 @@
 
             <TextView
                 android:id="@+id/school6"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -213,7 +213,7 @@
                 android:id="@+id/time6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -237,7 +237,7 @@
 
             <TextView
                 android:id="@+id/school7"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -246,7 +246,7 @@
                 android:id="@+id/time7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -269,7 +269,7 @@
 
             <TextView
                 android:id="@+id/school8"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -278,7 +278,7 @@
                 android:id="@+id/time8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -309,7 +309,7 @@
 
             <TextView
                 android:id="@+id/school9"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -318,7 +318,7 @@
                 android:id="@+id/time9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -341,7 +341,7 @@
 
             <TextView
                 android:id="@+id/school10"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -350,7 +350,7 @@
                 android:id="@+id/time10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -374,7 +374,7 @@
 
             <TextView
                 android:id="@+id/school11"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -383,7 +383,7 @@
                 android:id="@+id/time11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -406,7 +406,7 @@
 
             <TextView
                 android:id="@+id/school12"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -415,7 +415,7 @@
                 android:id="@+id/time12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -446,7 +446,7 @@
 
             <TextView
                 android:id="@+id/school13"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -455,7 +455,7 @@
                 android:id="@+id/time13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -478,7 +478,7 @@
 
             <TextView
                 android:id="@+id/school14"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -487,7 +487,7 @@
                 android:id="@+id/time14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -511,7 +511,7 @@
 
             <TextView
                 android:id="@+id/school15"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -520,7 +520,7 @@
                 android:id="@+id/time15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
@@ -538,12 +538,12 @@
                 android:id="@+id/name16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/dot"
+                android:drawableLeft="@drawable/dot2"
                 android:text="미등록"/>
 
             <TextView
                 android:id="@+id/school16"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미등록"
@@ -552,27 +552,52 @@
                 android:id="@+id/time16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="10dp" />
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/btn_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/edit_time"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        android:padding="10dp"
+        android:paddingRight="10dp"
         android:hint="시간을 입력하세요"
-        />
+        android:background="@drawable/edit_round"
+        android:backgroundTint="#F4F4F4"
+        android:textSize="13sp"
+        android:textCursorDrawable="@drawable/text_cursor" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btn_time"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="출근"
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumgothic"/>
+
+        <Button
+            android:id="@+id/btn_gone"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="퇴근"
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumgothic"/>
 
 
+    </LinearLayout>
 
 
 </LinearLayout>
