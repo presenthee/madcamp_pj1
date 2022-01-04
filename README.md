@@ -4,11 +4,18 @@
 # Abstract 
 
 
-하단에 위치한 3개의 버튼을 통해 각 tab으로 이동이 가능한 앱.
+하단에 위치한 3개의 버튼을 통해 각 tab으로 이동이 가능한 간단한 앱.
 
 Tab 1: 연락처
 Tab 2: 갤러리
 Tab 3: 출석 시스템
+
+# TAB1 : My phonebook
+
+Features
+1.휴대전화 연락처 데이터&사진 로딩
+2.Listview를 이용해서 linear한 전화번호부 구성.
+3.상세정보 표시 기능
 
 # TAB2 : My gallery
 
@@ -110,10 +117,11 @@ Firebase Database를 사용하여 사용자들로 부터, {name,password,school,
 계정을 등록하지 않은 경우에는, 모든 text가 미등록이라고 뜬다. 
 
 Features
-1. 로그인, 회원가입
+1. 로그인 및 회원가입
 2. 출퇴근
 3. error handling
 
+1.로그인 및 회원가입
 
 2. 출퇴근
 ```public void onDataChange(@NonNull DataSnapshot snapshot) {
