@@ -1,10 +1,13 @@
 package com.example.madcamp_pj1;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -73,18 +76,59 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
         gridview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity().getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
-                if (mThumbIds[i] instanceof Integer){
-                    imageAdapter.deleteItem_image(mThumbIds[i]);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                dialog.setMessage("뭐할래?");
+                dialog.setCancelable(true);
 
-                }
-                else if (mThumbIds[i] instanceof Uri){
-                    imageAdapter.deleteItem_uri(mThumbIds[i]);
+                dialog.setPositiveButton("공유", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int k) {
 
-                    imageAdapter.notifyDataSetChanged();
-                }
-                Intent intent = new Intent(getActivity(), Empty.class);
-                startActivity(intent);
+//                        Intent sharingintent = new Intent(Intent.ACTION_SEND);
+////                        shareintent.setType("text/plain");
+////                        shareintent.putExtra(Intent.EXTRA_TEXT, name+":"+phonenumber);
+//                        sharingintent.setType("image/png");
+//                        sharingintent.putExtra(Intent.EXTRA_STREAM, (Bundle) mThumbIds[i]);
+////                        Intent Sharing = Intent.createChooser(shareintent, "공유하기");
+//                        startActivity(Intent.createChooser(sharingintent,"sharing image using"));
+
+                        /*adapter.delItem(p);
+                        adapter.notifyDataSetChanged();*/ //for deleteing item.
+
+                        intent.setType("image/Uri");
+                        if (mThumbIds[i] instanceof Uri) {
+                        intent.putExtra(Intent.EXTRA_STREAM, (Uri) mThumbIds[i]);
+                    }
+                        else if (mThumbIds[i] instanceof Integer){
+                        intent.putExtra(Intent.EXTRA_STREAM, (Integer) mThumbIds[i]);
+                    }
+                        Intent chooser = Intent.createChooser(intent, "친구에게 공유하기");
+                        startActivity(chooser);
+                    }
+                });
+
+                dialog.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int k) {
+                        dialogInterface.dismiss();
+                        Toast.makeText(getActivity().getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
+                        if (mThumbIds[i] instanceof Integer){
+                            imageAdapter.deleteItem_image(mThumbIds[i]);
+
+                        }
+                        else if (mThumbIds[i] instanceof Uri){
+                            imageAdapter.deleteItem_uri(mThumbIds[i]);
+
+                            imageAdapter.notifyDataSetChanged();
+                        }
+                        Intent intent = new Intent(getActivity(), Empty.class);
+                        startActivity(intent);
+                    }
+                });
+
+
+                dialog.show();
                 return true;
             }
         });
