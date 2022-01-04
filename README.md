@@ -179,7 +179,7 @@ Fragment2
 gridview = view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(getActivity()));
 ```
-### 2. 갤러리에서 사진 다운도륻 하여 My gallery에 upload 기능 구현
+### 2. 갤러리에서 사진 다운로드 하여 My gallery에 upload 기능 구현
 ```Java
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
