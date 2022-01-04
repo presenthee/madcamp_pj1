@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_centerHorizontal="true"
-        android:scaleType="matrix"
+        android:scaleType="centerInside"
 
 
     tools:ignore="MissingConstraints">

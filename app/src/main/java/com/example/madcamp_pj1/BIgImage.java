@@ -8,11 +8,15 @@ import android.graphics.PointF;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
 
 public class BIgImage extends AppCompatActivity {
 
@@ -48,7 +52,7 @@ public class BIgImage extends AppCompatActivity {
 
         matrix = new Matrix();
         savedMatrix = new Matrix();
-        matrix.postScale(10,10);
+
         image = findViewById(R.id.image);
         Intent intent = getIntent();
         final Integer integer = intent.getIntExtra("image_integer",0);
@@ -60,7 +64,7 @@ public class BIgImage extends AppCompatActivity {
         if (integer instanceof Integer) {
             image.setImageResource(integer);
 //            image.setOnTouchListener(onTouch);
-            image.setScaleType(ImageView.ScaleType.MATRIX);
+//            image.setScaleType(ImageView.ScaleType.MATRIX);
 //            image.setScaleType(ImageView.ScaleType.CENTER);
 
 
@@ -68,16 +72,26 @@ public class BIgImage extends AppCompatActivity {
         }
         if (uri instanceof String){
             Uri s_uri = Uri.parse(uri);
+//            try {
+//                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),s_uri);
+//                image.setImageBitmap(getResizedBitmap(bm,image.getWidth(),image.getHeight()));
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             image.setImageURI(s_uri);
 //            image.setScaleType(ImageView.ScaleType.CENTER);
 //            image.setOnTouchListener(onTouch);
 //            image.setScaleType(ImageView.ScaleType.CENTER);
-            image.setScaleType(ImageView.ScaleType.MATRIX);
+
 
 
 
         }
+//        int width = image.getWidth();
+//        int height = image.getHeight();
 
+        image.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
 
         image.setOnTouchListener(onTouch);
@@ -180,13 +194,29 @@ public class BIgImage extends AppCompatActivity {
         }
     }
 
-//    private Matrix matrix_changeed(Matrix matrix){
-//        float[] values = new float[9];
-//        matrix.getValues(values);
-//
-//        float globalX = values[2];
-//        float globalY = values[5];
-//
-//    }
+    public Bitmap getResizedBitmap(Bitmap bm, int layoutWidth, int layoutHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        Toast.makeText(getApplicationContext(), "layout width : " + layoutWidth + " layout height : " + layoutHeight + " width : " + width + " height : " + height, Toast.LENGTH_SHORT).show();
+        float scaleWidth = ((float) layoutWidth) / width;
+        float scaleHeight = ((float) layoutHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix(); // RESIZE THE BIT MAP
+        if(width > layoutWidth && height > layoutHeight) {
+            // 레이아웃보다 큰 이미지인 경우
+            matrix.postScale(scaleWidth, scaleHeight);
+        } else if(width > layoutWidth) { // 가로만 레이아웃보다 큰 경우
+            matrix.postScale(scaleWidth, scaleWidth);
+        } else if(height > layoutHeight) { //세로만 레이아웃보다 큰 경우
+            matrix.postScale(scaleHeight, scaleHeight);
+        } else { // 레이아웃보다 작은 이미지인 경우
+            return bm;
+        } // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap( bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
+    }
+
+
 
 }
