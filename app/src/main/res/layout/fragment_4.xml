@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/main_theme"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="81dp"
@@ -17,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical">
 
@@ -54,7 +60,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -92,7 +98,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="50dp">
@@ -130,7 +136,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -176,7 +182,7 @@
         android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical" >
 
@@ -213,7 +219,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -251,7 +257,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="50dp">
@@ -289,7 +295,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -334,7 +340,7 @@
         android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical" >
 
@@ -371,7 +377,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp" >
@@ -409,7 +415,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="50dp">
@@ -447,7 +453,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp" >
@@ -492,7 +498,7 @@
         android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical" >
 
@@ -529,7 +535,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -567,7 +573,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="50dp">
@@ -605,7 +611,7 @@
 
         <LinearLayout
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:background="@android:color/transparent"
             android:orientation="vertical"
             android:layout_marginLeft="15dp">
@@ -646,39 +652,48 @@
         android:id="@+id/edit_time"
         android:layout_gravity="center"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="right"
-        android:padding="10dp"
-        android:paddingRight="10dp"
-        android:hint="시간을 입력하세요"
+        android:layout_height="22dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:hint="출근 시간을 입력하세요"
         android:background="@drawable/edit_round"
         android:backgroundTint="#F4F4F4"
-        android:textSize="13sp"
+        android:textSize="10sp"
         android:textCursorDrawable="@drawable/text_cursor" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
 
         <Button
             android:id="@+id/btn_time"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:text="출근"
-            android:textSize="13sp"
-            android:fontFamily="@font/nanumgothic"/>
+            android:layout_margin="7dp"
+            android:textSize="11sp"
+            android:fontFamily="@font/nanumgothic"
+            android:background="@drawable/color_change"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:textColor="#6C6C6C" />
 
         <Button
             android:id="@+id/btn_gone"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:text="퇴근"
-            android:textSize="13sp"
-            android:fontFamily="@font/nanumgothic"/>
+            android:layout_margin="7dp"
+            android:textSize="11sp"
+            android:fontFamily="@font/nanumgothic"
+            android:background="@drawable/color_change"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:textColor="#6C6C6C"/>
 
 
     </LinearLayout>
