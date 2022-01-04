@@ -101,7 +101,7 @@ dialog.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
 
 
 
-TAB3: 출석 시스템
+# TAB3: 출석 시스템
 
 Firebase Database를 사용하여 사용자들로 부터, {name,password,school,sit_number} 을 받고 database에 기록을 한다.
 처음 계정이 생성될때, 출석시간(time)은 -1로 setting이 된다. 
