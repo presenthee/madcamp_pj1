@@ -18,6 +18,7 @@ Tab 3: 출석 시스템
 
 ## TAB1 : My phonebook
 Fragment1
+![tab1](https://user-images.githubusercontent.com/77828537/148053498-d8d1850a-4ac5-404d-8f4f-152e77f451ad.gif)
 
 ### Features
 
@@ -85,6 +86,9 @@ class SingleAdapter extends BaseAdapter implements Filterable {
 
 전체적인 레이아웃은 다음과 같다. (singler_item_list.xml 및 fragment_1.xml 참고)
 
+<img src = "https://user-images.githubusercontent.com/77828537/148054125-e6fc2aad-368c-45c7-9f00-fa4cb1a8abd6.jpg" width="30%" height="height 30%">
+
+
 ### 3. 상세정보 표시 기능
 리스트 뷰의 각 아이템 클릭시 intent를 이용하여 Iteminfo Activity로 이동. 해당 인물에 대한 상세 정보 창을 띄워준다.
 
@@ -102,6 +106,8 @@ class SingleAdapter extends BaseAdapter implements Filterable {
 
 
 전체적인 레이아웃은 다음과 같다. (activity_item_info.xml 참고)
+
+<img src = "https://user-images.githubusercontent.com/77828537/148054120-8f2626c6-53d5-4f43-8e4f-0b0e40e549ae.jpg" width="30%" height="height 30%">
 
 ### 4. 검색 
 adapter 가 filterable 인터페이스를 구현하도록 하여 검색 기능을 만들었다.
@@ -179,6 +185,11 @@ Fragment2
 gridview = view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(getActivity()));
 ```
+
+전체 레이아웃은 다음과 같다. 
+
+<img src = "https://user-images.githubusercontent.com/77828537/148054188-e3a5f910-0745-4c59-99a0-2d9eb1cb79fd.jpg" width="30%" height="30%">
+
 ### 2. 갤러리에서 사진 다운로드 하여 My gallery에 upload 기능 구현
 ```Java
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -245,6 +256,7 @@ dialog.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
 
 ## TAB3: 출석 시스템
 Fragment3(로그인 창) / Fragment4(출석)
+![tab3](https://user-images.githubusercontent.com/77828537/148053733-cc5e62d2-3f14-4c2f-a7f9-651a83f7426b.gif)
 
 Firebase Database를 사용하여 사용자들로부터, {name,password,school,sit_number} 을 받고 database에 기록 한다.
 처음 계정이 생성될때, 출석시간(time)은 -1로 setting이 된다. 
@@ -262,6 +274,8 @@ firebase Database에 등록된 정보를 이용하여, 아이디와 비밀번호
 로그인 성공시 fragment4(출석창)으로 화면이 전환된다.
 
 새 정보를 등록하고 싶다면 회원가입 창을 이용한다. 버튼을 누르면 firebase에 정보가 전송된다.
+
+<img src = "https://user-images.githubusercontent.com/77828537/148054180-d415fb8c-c5cd-41e5-bb05-7ff449eb66ec.jpg" width="30%" height="30%"><img src = "https://user-images.githubusercontent.com/77828537/148054184-2e54a86c-6abc-4277-b42b-1c3bba9519dc.jpg" width="30%" height="30%">
 
 ### 2. 출퇴근
 ```public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -293,6 +307,8 @@ firebase Database에 등록된 정보를 이용하여, 아이디와 비밀번호
 출근에 시간을 기입하고 버튼을 누르면 fireabase에 내장된 time이 바뀌면서 화면에 나오게 된다.
 database에 정보가 바뀔때 마다 onDataChange 함수가 호출되며, 값을 새롭게 갱신시킨다.
 
+<img src = "https://user-images.githubusercontent.com/77828537/148054176-21472b72-d862-4a56-9f4b-8e1089059ca2.jpg" width="30%" height="30%">
+
 ### 3. error handling ;ㅅ;
 데이터 베이스를 쓰는 경험이 처음이다 보니, 앱이 보안에 취약해졌다.
 
@@ -305,7 +321,5 @@ database에 정보가 바뀔때 마다 onDataChange 함수가 호출되며, 값�
 
 2의 경우 출퇴근 기능을 구현할 때 database수정시 유저 정보를 체크하지 않아서 발생하였다. user값이 존재하지 않을 시 time을
 변경하지 않는 방법으로 해결하였다.
-
-
 
 
