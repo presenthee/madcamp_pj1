@@ -10,7 +10,7 @@ Tab 1: 연락처
 Tab 2: 갤러리
 Tab 3: 출석 시스템
 
-TAB2 : My gallery
+# TAB2 : My gallery
 
 Features
 1. Gridview를 이용해서 격자식 gallery 구성
