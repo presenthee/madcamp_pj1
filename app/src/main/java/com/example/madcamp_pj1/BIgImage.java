@@ -63,6 +63,23 @@ public class BIgImage extends AppCompatActivity {
         final Integer integer = intent.getIntExtra("image_integer",0);
         final String uri = intent.getStringExtra("image_uri");
 
+//        btn_play.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                final Integer integer = intent.getIntExtra("image_integer",0);
+//                final String uri = intent.getStringExtra("image_uri");
+//                Intent intent_1 = new Intent(this, Playimage.class);
+//                if (integer instanceof Integer){
+//                    intent.putExtra("image_integer",integer);
+//                }
+//                if (uri instanceof String){
+//                    Uri s_uri = Uri.parse(uri);
+//                    intent.putExtra("image_uri", s_uri);
+//                }
+//            }
+//        });
+
+
 
 //        if (intent instanceof Integer){
 //        image.setImageResource(intent.getIntExtra("image",0));
