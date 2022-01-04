@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:layout_marginTop="0dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#ECECEC">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,16 +17,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
-            android:orientation="vertical">
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="3dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -59,11 +62,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -75,8 +80,8 @@
                 android:id="@+id/name2"
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
-                android:gravity="right"
                 android:drawableLeft="@drawable/dot2"
+                android:gravity="right"
                 android:text="미등록"
                 android:textSize="9dp" />
 
@@ -87,6 +92,7 @@
                 android:layout_gravity="center|right"
                 android:text="미등록"
                 android:textSize="7dp" />
+
             <TextView
                 android:id="@+id/time2"
                 android:layout_width="wrap_content"
@@ -97,11 +103,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="50dp">
+            android:padding="3dp"
+            android:layout_marginLeft="60dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -135,11 +143,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -181,10 +191,12 @@
         android:gravity="center"
         android:layout_margin="10dp">
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
-            android:orientation="vertical" >
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="3dp" >
 
             <ImageView
                 android:layout_width="30dp"
@@ -218,11 +230,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -256,11 +270,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="50dp">
+            android:padding="3dp"
+            android:layout_marginLeft="60dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -294,11 +310,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -339,10 +357,12 @@
         android:gravity="center"
         android:layout_margin="10dp">
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
-            android:orientation="vertical" >
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="3dp" >
 
             <ImageView
                 android:layout_width="30dp"
@@ -376,11 +396,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp" >
+            android:padding="3dp"
+            android:layout_marginLeft="10dp" >
 
             <ImageView
                 android:layout_width="30dp"
@@ -414,11 +436,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="50dp">
+            android:padding="3dp"
+            android:layout_marginLeft="60dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -452,11 +476,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp" >
+            android:padding="3dp"
+            android:layout_marginLeft="10dp" >
 
             <ImageView
                 android:layout_width="30dp"
@@ -497,10 +523,12 @@
         android:gravity="center"
         android:layout_margin="10dp">
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
-            android:orientation="vertical" >
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="3dp" >
 
             <ImageView
                 android:layout_width="30dp"
@@ -534,11 +562,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -572,11 +602,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="50dp">
+            android:padding="3dp"
+            android:layout_marginLeft="60dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -610,11 +642,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/edit_round"
+            android:backgroundTint="#FAFAFA"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp">
+            android:padding="3dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="30dp"
