@@ -1,5 +1,7 @@
 package com.example.madcamp_pj1;
 
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -31,21 +33,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fragment4 extends Fragment {
+    // 교실 화면 fragment.
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private DatabaseReference databaseReference = database.getReference("User");
 
     Field field;
-
-    String name;
+    private Activity mActivity;
+    static String username; //static? 없어지는 것 같음(추측)
     TextView nameview;
     TextView schoolview;
     TextView timeview;
 
     String sitnumber;
-    Integer sitnumber_int;
 
+    //null activity를 방지하기 위한 메소드. -->attach시 activity를 저장한다.
+    @Override public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Activity) { mActivity = (Activity)context; }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,8 +78,9 @@ public class Fragment4 extends Fragment {
         Integer[] resId_time = {R.id.time1,R.id.time2,R.id.time3,R.id.time4,R.id.time5,R.id.time6,R.id.time7,R.id.time8,R.id.time9,R.id.time10,
                 R.id.time11,R.id.time12,R.id.time13,R.id.time14,R.id.time15,R.id.time16};
 
+        //fragment3(로그인 창)에서 name 정보를 받아온다.
         if(getArguments() != null){
-            name = getArguments().getString("name");
+            username = getArguments().getString("name");
 //            Log.d("Fragment4", "get");
         }
 
@@ -91,13 +99,13 @@ public class Fragment4 extends Fragment {
                     timeview = view.findViewById(resId_time[sitnumber_int-1]);
                     if(user.getTime().equals("-1")){
                         timeview.setText("퇴근");
-                        Drawable img = getActivity().getResources().getDrawable(R.drawable.dot2);
+                        Drawable img = mActivity.getResources().getDrawable(R.drawable.dot2);
                         img.setBounds(0,0,60,60);
                         nameview.setCompoundDrawables(img,null,null,null);
                     }
                     else{
                         timeview.setText(user.getTime());
-                        Drawable img = getActivity().getResources().getDrawable(R.drawable.dot);
+                        Drawable img = mActivity.getResources().getDrawable(R.drawable.dot);
                         img.setBounds(0,0,60,60);
                         nameview.setCompoundDrawables(img,null,null,null);
                     }
@@ -122,23 +130,32 @@ public class Fragment4 extends Fragment {
         });
 
         btn_time.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            Map<String, Object> ht = new HashMap<String, Object>();
-                                            String att_time = editText.getText().toString();
-                                            ht.put(name+"/"+"time", att_time);
-                                            databaseReference.updateChildren(ht);
+            @Override
+            public void onClick(View view) {
+                String att_time = editText.getText().toString();
+                // 입력이 없을경우 바꾸지 않는다.
+                if (att_time!=null && username !=null) {
+                    //입력한 시간 길이가 0인 경우 바꾸지 않음.
+                    if(att_time.length()!=0) {
+                        Map<String, Object> ht = new HashMap<String, Object>();
+                        ht.put(username + "/" + "time", att_time);
+                        databaseReference.updateChildren(ht);
+                    }
+                }
 
-                                        }
-                                    }
+            }
+        }
         );
 
         btn_gone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Map<String, Object> ht = new HashMap<String, Object>();
-                ht.put(name+"/"+"time", "-1");
-                databaseReference.updateChildren(ht);
+                //name값이 없을 경우 바꾸지 않는다.
+                if(username != null) {
+                    Map<String, Object> ht = new HashMap<String, Object>();
+                    ht.put(username + "/" + "time", "-1");
+                    databaseReference.updateChildren(ht);
+                }
             }
         });
         return view;
@@ -186,80 +203,5 @@ public class Fragment4 extends Fragment {
 //
 //    }
 
-//    public class student {
-//        private String name; //동물 이름
-//        private String pw; //동물 종류
-//        private String school;
-//        private String sit;
-//        private String time;
-//
-//        public student(){} // 생성자 메서드
-//
-//
-//        //getter, setter 설정
-//
-//        public String getPw() {
-//            return pw;
-//        }
-//
-//        public void setPw(String pw) {
-//            this.pw = pw;
-//        }
-//
-//        public String getSchool() {
-//            return school;
-//        }
-//
-//        public void setSchool(String school) {
-//            this.school = school;
-//        }
-//
-//        public String getSit() {
-//            return sit;
-//        }
-//
-//        public void setSit(String sit) {
-//            this.sit = sit;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//
-//        //값을 추가할때 쓰는 함수, MainActivity에서 addanimal함수에서 사용할 것임.
-//        public student(String name, String pw, String school, String sit, String time){
-//            this.name = name;
-//            this.pw = pw ;
-//            this.school = school;
-//            this.sit = sit;
-//            this.time = time;
-//        }
-//
-//        public String getTime() {
-//            return time;
-//        }
-//
-//        public void setTime(String time) {
-//            this.time = time;
-//        }
-//    }
-//
-//    public void addstudent(String name, String pw, String school, String sit, String time) {
-//
-//        //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
-//        // ex) 갓 태어난 동물만 입력해서 int age=1; 등을 넣는 경우
-//
-//        //animal.java에서 선언했던 함수.
-//        RegisterActivity.student studentt = new RegisterActivity.student(name,pw,school,sit,time);
-//
-//        //child는 해당 키 위치로 이동하는 함수입니다.
-//        //키가 없는데 "zoo"와 name같이 값을 지정한 경우 자동으로 생성합니다.
-//        databaseReference.child("User").child(name).setValue(studentt);
-//
-//    }
+
 }

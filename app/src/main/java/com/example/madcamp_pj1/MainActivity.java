@@ -12,12 +12,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
+    //바텀 네비게이션 뷰를 이용해 하단 탭 구현함
     public static Context cont;
     Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
     Fragment4 fragment4;
-    //로그인 확인을 위한 fragment.
+    //로그인 확인을 위한 flag --> 이 값을 이용해 탭 이동시 화면을 조정한다.
     static public boolean is_Login;
 
     @Override
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                         }
 
-                        else { //로그인이 x인 경우 -- 로그인 창
+                        else { //로그인이 x인 경우 fragment3 로그인 창
                             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment3).commit();
                             return true;
                         }

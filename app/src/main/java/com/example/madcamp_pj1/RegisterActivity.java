@@ -15,19 +15,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    //회원 가입 창. 받은 정보를 firebase에 추가한다.
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private DatabaseReference databaseReference = database.getReference();
 
     Button btn;
     EditText edit1, edit2,edit3,edit4;
-    EditText editTextEmail;
-    EditText editTextPassword;
-    Button buttonSignup;
-    TextView textviewSingin;
-    TextView textviewMessage;
-    ProgressDialog progressDialog;
     //define firebase object
     FirebaseAuth firebaseAuth;
 
@@ -50,10 +44,35 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
 
+        //버튼 클릭시 정보를 파이어 베이스에 업로드 한다.
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addstudent(edit1.getText().toString(), edit2.getText().toString(),edit3.getText().toString(),edit4.getText().toString(),"-1");
+                String input_name = edit1.getText().toString();
+                String input_pw = edit2.getText().toString();
+                String input_school = edit3.getText().toString();
+                String input_sit = edit4.getText().toString();
+
+                //입력 값을 모두 입력했는지 체크한다.
+                if(input_name==null||input_pw==null||input_school==null||input_sit==null) {
+                    Toast iToast = Toast.makeText(getApplicationContext(),
+                            "정보를 모두 입력해주세요.", Toast.LENGTH_SHORT);
+                    iToast.show();
+                }
+
+                if(input_name.length()==0||input_name.length()==0||input_name.length()==0||input_sit.length()==0){
+                    Toast iToast = Toast.makeText(getApplicationContext(),
+                            "정보를 모두 입력해주세요.", Toast.LENGTH_SHORT);
+                    iToast.show();
+                }
+
+                if(Integer.parseInt(input_sit)>16 || Integer.parseInt(input_sit)<1 ) {
+                    Toast iToast = Toast.makeText(getApplicationContext(),
+                            "자릿값은 1-16이어야 합니다.", Toast.LENGTH_SHORT);
+                    iToast.show();
+                }
+
+                addstudent(input_name, input_pw, input_school, input_sit,"-1");
                 Toast myToast = Toast.makeText(getApplicationContext(),"가입 되었습니다.", Toast.LENGTH_SHORT);
                 myToast.show();
                 onBackPressed();
@@ -63,79 +82,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    public static class student {
-        private String name; //동물 이름
-        private String pw; //동물 종류
-        private String school;
-        private String sit;
-        private String time;
-
-        public student(){} // 생성자 메서드
-
-
-        //getter, setter 설정
-
-        public String getPw() {
-            return pw;
-        }
-
-        public void setPw(String pw) {
-            this.pw = pw;
-        }
-
-        public String getSchool() {
-            return school;
-        }
-
-        public void setSchool(String school) {
-            this.school = school;
-        }
-
-        public String getSit() {
-            return sit;
-        }
-
-        public void setSit(String sit) {
-            this.sit = sit;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-
-        //값을 추가할때 쓰는 함수, MainActivity에서 addanimal함수에서 사용할 것임.
-        public student(String name, String pw, String school, String sit, String time){
-            this.name = name;
-            this.pw = pw ;
-            this.school = school;
-            this.sit = sit;
-            this.time = time;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
-        }
-    }
-
     public void addstudent(String name, String pw, String school, String sit, String time) {
 
-        //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
-        // ex) 갓 태어난 동물만 입력해서 int age=1; 등을 넣는 경우
+        //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능
+        User studentt = new User(name,pw,school,sit,time);
 
-        //animal.java에서 선언했던 함수.
-        student studentt = new student(name,pw,school,sit,time);
-
-        //child는 해당 키 위치로 이동하는 함수입니다.
-        //키가 없는데 "zoo"와 name같이 값을 지정한 경우 자동으로 생성합니다.
+        //child는 해당 키 위치로 이동하는 함수
+        //키가 없는데 "zoo"와 name같이 값을 지정한 경우 자동으로 생성
         databaseReference.child("User").child(name).setValue(studentt);
 
     }

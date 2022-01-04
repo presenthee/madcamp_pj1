@@ -9,6 +9,14 @@ public class User {
 
     public User(){}
 
+    public User(String name, String pw, String school, String sit, String time){
+        this.name = name;
+        this.pw = pw ;
+        this.school = school;
+        this.sit = sit;
+        this.time = time;
+    }
+
     public String getName() {
         return name;
     }

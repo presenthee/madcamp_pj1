@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import static com.example.madcamp_pj1.MainActivity.is_Login;
 
 public class Fragment3 extends Fragment {
+    //로그인 창 fragment.
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     User ur;
@@ -94,7 +95,7 @@ public class Fragment3 extends Fragment {
                             "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT);
                     nToast.show();
                 }
-                //리스트가 비었을 때
+                //리스트가 비었을 때 -> 아직 가져온 데이터 initialized x
                 else if (arrayList==null || (arrayList.size()==0)){
                     Toast aToast = Toast.makeText(getActivity().getApplicationContext(),
                             "Loading...", Toast.LENGTH_SHORT);
@@ -106,25 +107,25 @@ public class Fragment3 extends Fragment {
                         ur=arrayList.get(i);
                         if(ur.getName()==null) {
                             Log.d("Fragment3", "empty");
-
+                            //user에 이름 값이 없는경우
                         }
 
                         if(ur.getPw()==null) {
                             Log.d("Fragment3", "pwempty");
-
+                            //user에 패스워드 값이 없는 경우
                         }
 
                         if (((ur.getName().equals(id))==true) && (ur.getPw().equals(password))==true) {
-                            //비밀번호랑 아이디 일치시 fragment4 호출
+                            //비밀번호랑 아이디 일치시 fragment4(교실 창) 호출 - 로그인 성공 케이스
                             is_Login=true;
                             Bundle bundle = new Bundle(); // 번들을 통해 값 전달
                             bundle.putString("name",ur.getName());//번들에 넘길 값 저장
                             bundle.putString("sit",ur.getSit());
                             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            Fragment4 fragment4 = new Fragment4();//프래그먼트2 선언
-                            fragment4.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
+                            Fragment4 fragment4 = new Fragment4();//프래그먼트4 선언
+                            fragment4.setArguments(bundle);//번들을 프래그먼트4로 보낼 준비
                             transaction.replace(R.id.container, fragment4);
-                            transaction.commit();
+                            transaction.commitNow();
                         }
                     }
                 }
