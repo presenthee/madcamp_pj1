@@ -1,4 +1,4 @@
-# madcamp_pj1
+# madcamp_pj1 - 출석을 합시다
 ### 팀원
 강현희, 장준형
 ## Abstract 
