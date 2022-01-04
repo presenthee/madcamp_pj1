@@ -58,7 +58,6 @@ public class BIgImage extends AppCompatActivity {
         savedMatrix = new Matrix();
 
         image = findViewById(R.id.image);
-        Button btn_play = findViewById(R.id.btn_play);
         Intent intent = getIntent();
         final Integer integer = intent.getIntExtra("image_integer",0);
         final String uri = intent.getStringExtra("image_uri");
