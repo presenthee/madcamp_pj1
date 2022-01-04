@@ -78,10 +78,10 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
-                dialog.setMessage("뭐할래?");
+                dialog.setMessage("삭제 하시겠습니까?");
                 dialog.setCancelable(true);
 
-                dialog.setPositiveButton("공유", new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int k) {
 
@@ -96,15 +96,16 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
                         /*adapter.delItem(p);
                         adapter.notifyDataSetChanged();*/ //for deleteing item.
 
-                        intent.setType("image/Uri");
-                        if (mThumbIds[i] instanceof Uri) {
-                        intent.putExtra(Intent.EXTRA_STREAM, (Uri) mThumbIds[i]);
-                    }
-                        else if (mThumbIds[i] instanceof Integer){
-                        intent.putExtra(Intent.EXTRA_STREAM, (Integer) mThumbIds[i]);
-                    }
-                        Intent chooser = Intent.createChooser(intent, "친구에게 공유하기");
-                        startActivity(chooser);
+//                        intent.setType("image/png");
+//                        if (mThumbIds[i] instanceof Uri) {
+//                        intent.putExtra(Intent.EXTRA_STREAM, (Uri) mThumbIds[i]);
+//                    }
+//                        else if (mThumbIds[i] instanceof Integer){
+//                        intent.putExtra(Intent.EXTRA_STREAM, (Integer) mThumbIds[i]);
+//                    }
+//                        Intent chooser = Intent.createChooser(intent, "친구에게 공유하기");
+//                        startActivity(chooser);
+                        dialogInterface.dismiss();
                     }
                 });
 
@@ -119,7 +120,6 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
                         }
                         else if (mThumbIds[i] instanceof Uri){
                             imageAdapter.deleteItem_uri(mThumbIds[i]);
-
                             imageAdapter.notifyDataSetChanged();
                         }
                         Intent intent = new Intent(getActivity(), Empty.class);
@@ -181,28 +181,11 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
         if (resultCode == MainActivity.RESULT_OK) {
             if (requestCode == PICK_IMAGE) {
                 Uri uri = data.getData();
-//                Intent intent = new Intent(getApplicationContext(), BIgImage.class);
-//                intent.putExtra("image", uri);
-//                startActivity(intent);
-//                imageView.setImageURI(uri);
-                Log.e("check1", String.valueOf(mThumbIds.length));
                 imageAdapter.addItem(uri);
-//                Toast.makeText(this,"hello11",Toast.LENGTH_LONG).show();
-                Log.e("check2", String.valueOf(mThumbIds.length));
                 imageAdapter.notifyDataSetChanged();
-
-//                try {
-//                    imageAdapter.addItem(uri);
-//                    imageAdapter.notifyDataSetChanged();
-//                } catch(Exception e){
-                Toast.makeText(getActivity().getApplicationContext(),"hello",Toast.LENGTH_LONG).show();
-//                }
+                Toast.makeText(getActivity().getApplicationContext(),"Uploaded",Toast.LENGTH_LONG).show();
             }
-
-
         }
-
-
     }
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
