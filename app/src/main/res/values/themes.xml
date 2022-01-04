@@ -15,4 +15,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/opensan</item>
+    </style>
+
 </resources>
