@@ -160,6 +160,7 @@ ListFilter inner class를 만들어서 필터링 수행 메소드를 오버라�
 
 ## TAB2 : My gallery
 Fragment2
+![scroll](https://user-images.githubusercontent.com/77828537/148056200-1e5d944e-b90f-404a-96ce-270027af0ff2.gif) ![mk](https://user-images.githubusercontent.com/77828537/148057010-ffdb3aa3-4137-401a-92ab-524c3afe77b4.gif)
 
 ### Features
 1. Gridview를 이용해서 격자식 gallery 구성
